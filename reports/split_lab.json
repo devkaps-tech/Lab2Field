@@ -1,0 +1,47 @@
+{
+  "train": {
+    "total": 12702,
+    "per_class": {
+      "bacterial_spot": 1489,
+      "early_blight": 700,
+      "healthy": 1109,
+      "late_blight": 1331,
+      "leaf_mold": 666,
+      "mosaic_virus": 261,
+      "septoria_leaf_spot": 1239,
+      "spider_mites": 1174,
+      "target_spot": 983,
+      "yellow_leaf_curl_virus": 3750
+    }
+  },
+  "val": {
+    "total": 2722,
+    "per_class": {
+      "bacterial_spot": 319,
+      "early_blight": 150,
+      "healthy": 238,
+      "late_blight": 285,
+      "leaf_mold": 143,
+      "mosaic_virus": 56,
+      "septoria_leaf_spot": 266,
+      "spider_mites": 251,
+      "target_spot": 210,
+      "yellow_leaf_curl_virus": 804
+    }
+  },
+  "test": {
+    "total": 2722,
+    "per_class": {
+      "bacterial_spot": 319,
+      "early_blight": 150,
+      "healthy": 238,
+      "late_blight": 285,
+      "leaf_mold": 143,
+      "mosaic_virus": 56,
+      "septoria_leaf_spot": 266,
+      "spider_mites": 251,
+      "target_spot": 211,
+      "yellow_leaf_curl_virus": 803
+    }
+  }
+}

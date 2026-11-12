@@ -1,0 +1,121 @@
+schema: '2.0'
+stages:
+  extract_plantvillage:
+    cmd: python -m src.data.extract plantvillage
+    deps:
+    - path: src/data/extract.py
+      hash: md5
+      md5: 85f20e5ea60afa22ba3681d54939be71
+      size: 5354
+    params:
+      params.yaml:
+        data.plantvillage:
+          source:
+            type: kaggle
+            id: abdallahalidev/plantvillage-dataset
+          subdir: color
+          class_map:
+            Tomato___Bacterial_spot: bacterial_spot
+            Tomato___Early_blight: early_blight
+            Tomato___Late_blight: late_blight
+            Tomato___Leaf_Mold: leaf_mold
+            Tomato___Septoria_leaf_spot: septoria_leaf_spot
+            Tomato___Spider_mites Two-spotted_spider_mite: spider_mites
+            Tomato___Target_Spot: target_spot
+            Tomato___Tomato_Yellow_Leaf_Curl_Virus: yellow_leaf_curl_virus
+            Tomato___Tomato_mosaic_virus: mosaic_virus
+            Tomato___healthy: healthy
+    outs:
+    - path: data/raw/plantvillage_tomato
+      hash: md5
+      md5: 65453f05d9cdc48672942181cff1820f.dir
+      size: 287796058
+      nfiles: 18146
+    - path: reports/extract_plantvillage.json
+      hash: md5
+      md5: d6b3ace26f280756a9c914d9d0db097f
+      size: 471
+  extract_plantdoc:
+    cmd: python -m src.data.extract plantdoc
+    deps:
+    - path: src/data/extract.py
+      hash: md5
+      md5: 85f20e5ea60afa22ba3681d54939be71
+      size: 5354
+    params:
+      params.yaml:
+        data.plantdoc:
+          source:
+            type: git
+            id: https://github.com/pratikkayal/PlantDoc-Dataset
+          subdir:
+          class_map:
+            Tomato leaf bacterial spot: bacterial_spot
+            Tomato Early blight leaf: early_blight
+            Tomato leaf late blight: late_blight
+            Tomato mold leaf: leaf_mold
+            Tomato Septoria leaf spot: septoria_leaf_spot
+            Tomato two spotted spider mites leaf: spider_mites
+            Tomato leaf yellow virus: yellow_leaf_curl_virus
+            Tomato leaf mosaic virus: mosaic_virus
+            Tomato leaf: healthy
+    outs:
+    - path: data/raw/plantdoc_tomato
+      hash: md5
+      md5: 9cd6f58fa968a97860f6ec424e4dbdac.dir
+      size: 238900674
+      nfiles: 743
+    - path: reports/extract_plantdoc.json
+      hash: md5
+      md5: f1d538a5ccc1b104b8553a8c54b41812
+      size: 448
+  split_lab:
+    cmd: python -m src.data.split lab
+    deps:
+    - path: data/raw/plantvillage_tomato
+      hash: md5
+      md5: 65453f05d9cdc48672942181cff1820f.dir
+      size: 287796058
+      nfiles: 18146
+    - path: src/data/split.py
+      hash: md5
+      md5: ce909eaef83a9c567b1872d27e65266a
+      size: 2459
+    params:
+      params.yaml:
+        split:
+          seed: 42
+          val_size: 0.15
+          test_size: 0.15
+    outs:
+    - path: data/processed/lab
+      hash: md5
+      md5: 7a99c3c67bf2bc03fd49873bc82152f2.dir
+      size: 1778212
+      nfiles: 3
+    - path: reports/split_lab.json
+      hash: md5
+      md5: 6f710ca1e1d0e2c85405f11aa02ae048
+      size: 1021
+  prepare_field:
+    cmd: python -m src.data.split field
+    deps:
+    - path: data/raw/plantdoc_tomato
+      hash: md5
+      md5: 9cd6f58fa968a97860f6ec424e4dbdac.dir
+      size: 238900674
+      nfiles: 743
+    - path: src/data/split.py
+      hash: md5
+      md5: ce909eaef83a9c567b1872d27e65266a
+      size: 2459
+    outs:
+    - path: data/processed/field
+      hash: md5
+      md5: 42a82bacc5c85213b475d4ab7313b321.dir
+      size: 67731
+      nfiles: 1
+    - path: reports/prepare_field.json
+      hash: md5
+      md5: 17ff3b59bddb70c8a6a1f965d5c722a7
+      size: 308

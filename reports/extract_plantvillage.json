@@ -1,0 +1,22 @@
+{
+  "dataset": "plantvillage",
+  "total_images": 18146,
+  "per_class": {
+    "bacterial_spot": 2127,
+    "early_blight": 1000,
+    "healthy": 1585,
+    "late_blight": 1901,
+    "leaf_mold": 952,
+    "mosaic_virus": 373,
+    "septoria_leaf_spot": 1771,
+    "spider_mites": 1676,
+    "target_spot": 1404,
+    "yellow_leaf_curl_virus": 5357
+  },
+  "broken_skipped": {},
+  "duplicates_skipped": {
+    "healthy": 6,
+    "late_blight": 8
+  },
+  "same_image_in_two_classes": 0
+}

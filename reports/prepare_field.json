@@ -1,0 +1,16 @@
+{
+  "replay": {
+    "total": 743,
+    "per_class": {
+      "bacterial_spot": 110,
+      "early_blight": 88,
+      "healthy": 63,
+      "late_blight": 111,
+      "leaf_mold": 91,
+      "mosaic_virus": 54,
+      "septoria_leaf_spot": 149,
+      "spider_mites": 2,
+      "yellow_leaf_curl_virus": 75
+    }
+  }
+}
