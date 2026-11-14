@@ -5,8 +5,8 @@ stages:
     deps:
     - path: src/data/extract.py
       hash: md5
-      md5: 85f20e5ea60afa22ba3681d54939be71
-      size: 5354
+      md5: afbf48150c5915dd8d6aa179e5b0a122
+      size: 5380
     params:
       params.yaml:
         data.plantvillage:
@@ -40,8 +40,8 @@ stages:
     deps:
     - path: src/data/extract.py
       hash: md5
-      md5: 85f20e5ea60afa22ba3681d54939be71
-      size: 5354
+      md5: afbf48150c5915dd8d6aa179e5b0a122
+      size: 5380
     params:
       params.yaml:
         data.plantdoc:

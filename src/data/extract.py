@@ -79,7 +79,8 @@ def find_class_dirs(root: Path, class_map: dict, subdir: str | None) -> dict[str
         print(f"[warning] tomato folders not in class_map (ignored): {sorted(unmatched_tomato)}")
     for label, dirs in found.items():
         if len(dirs) > 1:
-            print(f"[info] {label}: combining {len(dirs)} folders -> {[str(x.relative_to(root)) for x in dirs]}")
+            names = [str(x.relative_to(root)) for x in dirs]
+            print(f"[info] {label}: combining {len(dirs)} folders -> {names}")
     return found
 
 
