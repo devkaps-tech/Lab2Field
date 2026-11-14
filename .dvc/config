@@ -1,4 +1,4 @@
 [core]
-    remote = storage
-['remote "storage"']
-    url = ../../dvc-storage
+    remote = origin
+['remote "origin"']
+    url = https://dagshub.com/devkaps15/Lab2Field.dvc
