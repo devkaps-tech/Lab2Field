@@ -1,0 +1,31 @@
+[project]
+name = "plant-disease-mlops"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Dev Kapadia", email = "devkaps15@gmail.com" }
+]
+requires-python = ">=3.14"
+dependencies = [
+    "dvc>=3.67.1",
+    "kaggle>=2.2.5",
+    "pandas>=3.1.1",
+    "pillow>=13.0.0",
+    "pyyaml>=6.0.3",
+    "scikit-learn>=1.9.1",
+]
+
+[project.scripts]
+plant-disease-mlops = "plant_disease_mlops:main"
+
+[build-system]
+requires = ["uv_build>=0.12.5,<0.13.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pre-commit>=4.7.0",
+    "pytest>=9.2.0",
+    "ruff>=0.17.4",
+]

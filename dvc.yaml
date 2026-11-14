@@ -1,0 +1,48 @@
+stages:
+  extract_plantvillage:
+    cmd: python -m src.data.extract plantvillage
+    deps:
+      - src/data/extract.py
+    params:
+      - data.plantvillage
+    outs:
+      - data/raw/plantvillage_tomato
+    metrics:
+      - reports/extract_plantvillage.json:
+          cache: false
+
+  extract_plantdoc:
+    cmd: python -m src.data.extract plantdoc
+    deps:
+      - src/data/extract.py
+    params:
+      - data.plantdoc
+    outs:
+      - data/raw/plantdoc_tomato
+    metrics:
+      - reports/extract_plantdoc.json:
+          cache: false
+
+  split_lab:
+    cmd: python -m src.data.split lab
+    deps:
+      - src/data/split.py
+      - data/raw/plantvillage_tomato
+    params:
+      - split
+    outs:
+      - data/processed/lab
+    metrics:
+      - reports/split_lab.json:
+          cache: false
+
+  prepare_field:
+    cmd: python -m src.data.split field
+    deps:
+      - src/data/split.py
+      - data/raw/plantdoc_tomato
+    outs:
+      - data/processed/field
+    metrics:
+      - reports/prepare_field.json:
+          cache: false

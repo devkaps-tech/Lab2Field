@@ -1,0 +1,46 @@
+# All data settings live here. DVC watches these values: change one, run
+# `dvc repro`, and only the stages that use it re-run.
+
+data:
+  plantvillage:
+    source:
+      type: kaggle
+      id: abdallahalidev/plantvillage-dataset   # check this slug on Kaggle
+    # This upload has colour, grayscale and segmented copies of every image.
+    # Only keep folders that sit under a folder with this name.
+    subdir: color
+    # Source folder name -> our label. Labels are shared by both datasets.
+    class_map:
+      Tomato___Bacterial_spot: bacterial_spot
+      Tomato___Early_blight: early_blight
+      Tomato___Late_blight: late_blight
+      Tomato___Leaf_Mold: leaf_mold
+      Tomato___Septoria_leaf_spot: septoria_leaf_spot
+      Tomato___Spider_mites Two-spotted_spider_mite: spider_mites
+      Tomato___Target_Spot: target_spot
+      Tomato___Tomato_Yellow_Leaf_Curl_Virus: yellow_leaf_curl_virus
+      Tomato___Tomato_mosaic_virus: mosaic_virus
+      Tomato___healthy: healthy
+
+  plantdoc:
+    source:
+      type: git                                   # original source, folder names verified
+      id: https://github.com/pratikkayal/PlantDoc-Dataset
+      # To use a Kaggle copy instead:  type: kaggle,  id: <owner>/<dataset>
+    subdir: null          # take matching folders from both train/ and test/
+    class_map:
+      Tomato leaf bacterial spot: bacterial_spot
+      Tomato Early blight leaf: early_blight
+      Tomato leaf late blight: late_blight
+      Tomato mold leaf: leaf_mold
+      Tomato Septoria leaf spot: septoria_leaf_spot
+      Tomato two spotted spider mites leaf: spider_mites
+      Tomato leaf yellow virus: yellow_leaf_curl_virus
+      Tomato leaf mosaic virus: mosaic_virus
+      Tomato leaf: healthy
+      # PlantDoc has no target spot class.
+
+split:
+  seed: 42
+  val_size: 0.15
+  test_size: 0.15
